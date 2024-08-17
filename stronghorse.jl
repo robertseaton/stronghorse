@@ -2,10 +2,11 @@ using CSV
 using DataFrames
 using Plots
 using Dates
+using Debugger
 
 function double_weight_if_single!(df::DataFrame)
     for row in eachrow(df)
-        if occursin("One", row.Exercise) || occursin("Single", row.Exercise)
+        if occursin("One", row.Exercise) || occursin("Single", row.Exercise) || occursin("Dumbbell", row.Exercise) || occursin("Split", row.Exercise)
             row.Weight *= 2
         end
     end
@@ -90,6 +91,7 @@ alldates = calculate_ctl(alldates)
 alldates = calculate_atl(alldates)
 alldates[:, :TSB] = alldates.CTL .- alldates.ATL
 lower_bound = alldates.CTL .- 1.10 .* alldates.CTL
+
 plot(alldates.Date, alldates.CTL, label="CTL", xlabel="Date", ylabel="CTL", title="CTL, ATL, TSB vs Date", legend=:bottomleft)
 # hline!([0], color=:black, linestyle=:dash, linewidth=2)
 plot!(alldates.Date, lower_bound, fillrange=0, fillalpha=0.1, color=:green, label="Ideal", alpha=0)
