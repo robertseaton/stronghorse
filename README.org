@@ -3,7 +3,7 @@ When people see a strong horse and a weak horse, by nature they will like the
 strong horse.  -- Osama Bin Laden
 #+end_quote
 
-`stronghorse` is a translation of the performance model used by cyclists on
+[[stronghorse.rs.io][stronghorse]] is a translation of the performance model used by cyclists on
 e.g. TrainerRoad and intervals.icu to bodybuilding and weightlifting. It takes
 as input the CSV data export from the FitNotes Android app and then generates a
 graph you can use to analyze your training and compare it to your computed ideal
@@ -51,5 +51,5 @@ So, basically:
 1. In the *FitNotes* app, click the 3 dots in the right-hand corner and select
    *Settings* from the drop-down menu. Scroll to *Spreadsheet Export*, click on
    it, then select *Save Export*.
-2. Navigate to stronghorse.rs.io and upload the saved file to the website. It
+2. Navigate to [[stronghorse.rs.io][stronghorse.rs.io]] and upload the saved file to the website. It
    will produce a graph analyzing your data. 
