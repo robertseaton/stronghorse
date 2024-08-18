@@ -108,10 +108,10 @@ function calculateTSB(ctlData, atlData) {
 }
 
 function calculateIdealTSB(ctlData) {
-    // Calculate ideal TSB at -2.5% of CTL
+    // Calculate ideal TSB at -0.73% of CTL
     return ctlData.map(entry => ({
         date: entry.date,
-        tsb: -0.025 * entry.ctl
+        tsb: -0.0073 * entry.ctl
     }));
 }
 
