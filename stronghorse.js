@@ -130,7 +130,7 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
             labels,
             datasets: [
                 {
-                    label: 'Chronic Training Load (CTL)',
+                    label: 'Fitness',
                     data: ctlValues,
                     backgroundColor: 'rgba(54, 162, 235, 0.6)',
                     borderColor: 'rgba(54, 162, 235, 1)',
@@ -148,7 +148,7 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                     yAxisID: 'y-axis-load'
                 },
                 {
-                    label: 'Acute Training Load (ATL)',
+                    label: 'Stress',
                     data: atlValues,
                     backgroundColor: 'rgba(255, 99, 132, 0.6)',
                     borderColor: 'rgba(255, 99, 132, 1)',
@@ -156,7 +156,7 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                     fill: false,
                 },
                 {
-                    label: 'Training Stress Balance (TSB)',
+                    label: 'Recovery',
                     data: tsbValues,
                     backgroundColor: 'rgba(75, 192, 192, 0.6)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -164,7 +164,7 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                     fill: false,
                 },
                 {
-                    label: 'Ideal TSB',
+                    label: 'Goldilocks Zone',
                     data: idealTSBValues,
                     backgroundColor: 'rgba(144, 238, 144, 0.8)',
                     borderColor: 'rgba(144, 238, 144, 0.8)',
