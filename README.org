@@ -1,0 +1,55 @@
+#+begin_quote
+When people see a strong horse and a weak horse, by nature they will like the
+strong horse.  -- Osama Bin Laden
+#+end_quote
+
+`stronghorse` is a translation of the performance model used by cyclists on
+e.g. TrainerRoad and intervals.icu to bodybuilding and weightlifting. It takes
+as input the CSV data export from the FitNotes Android app and then generates a
+graph you can use to analyze your training and compare it to your computed ideal
+training zone. Are you training too much, too little, or just right?
+
+The produced graph has three lines:
+
+- *Fitness*: This is an exponentially weighted 42-day average of your training
+  load in tonnage, your so-called chronic training load. The assumption is that
+  if that the average tonnage you're moving is a measure of your underlying
+  fitness: if you go from someone moving 13,000lbs/day to someone moving
+  16,000lbs/day, you will be more fit, stronger, more muscular.
+- *Stress*: This is an exponentially weighted 7-day average of your training load
+  in tonnage, your so-called acute training load. This is a measure of the
+  amount of short term stress or fatigue you've accumulated from training. To
+  create more fitness, your stress must be greater than your fitness, leading us
+  to...
+- *Recovery*: This is simply your Stress subtracted from your Fitness, producing
+  a measure of your training balance and recovery. When your Stress is much
+  larger than your Fitness, your Recovery will be low. When your Stress is less than
+  your Fitness, like during a deload, your Recovery will be high.
+- *Goldilocks Zone*: This green band represents the ideal training balance to
+  create sustainable increases in Fitness. The idea is that your Recovery line
+  should optimally trend inside this zone. When you're training inside this
+  zone, your Stress is between 0% and 10% higher than your Fitness, just enough
+  Stress to produce adaptations without risking overreaching and
+  overtraining. The thicker green line is at 0.73%, based on [[https://www.reddit.com/r/weightroom/comments/y3z9m5/which_workout_program_is_best_comparing_reviews/][this analysis]]
+  finding that lifters in a surplus had a median strength gain of 0.73% per week. 
+
+
+So, basically:
+
+- If your Recovery line is above the Goldilocks Zone, you are in a deload. This is
+  a good place to be in the week before a competition, for example, but
+  otherwise it indicates you are not training hard enough. 
+- If your Recovery line is inside the Goldilocks Zone, you are increasing
+  Fitness at a sustainable pace.
+- If your Recovery line is below the Goldilocks Zone, you have taken on a lot of
+  training volume and Stress lately and are at risk of overtraining and
+  injury. You may be training too hard.
+- You need at least 42 days of data before your graph will make sense.
+
+* How to Use
+
+1. In the *FitNotes* app, click the 3 dots in the right-hand corner and select
+   *Settings* from the drop-down menu. Scroll to *Spreadsheet Export*, click on
+   it, then select *Save Export*.
+2. Navigate to stronghorse.rs.io and upload the saved file to the website. It
+   will produce a graph analyzing your data. 
