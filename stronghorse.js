@@ -140,12 +140,11 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                 {
                     label: 'Load',
                     data: loadValues,
-                    borderColor: 'rgba(255, 206, 86, 1)',
-                    backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                    borderColor: 'rgba(255, 206, 86, 0.2)',
+                    backgroundColor: 'rgba(255, 206, 86, 0.3)',
                     borderWidth: 1,
                     fill: false,
                     type: 'bar',
-                    yAxisID: 'y-axis-load'
                 },
                 {
                     label: 'Stress',
@@ -175,46 +174,10 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
             ]
         },
         options: {
-            scales: {
-                yAxes: [
-                    {
-                        id: 'y-axis-1',
-                        type: 'linear',
-                        position: 'left',
-                        ticks: {
-                            beginAtZero: true,
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Training Load / Balance'
-                        }
-                    },
-                    {
-                        id: 'y-axis-load',
-                        type: 'linear',
-                        position: 'right',
-                        ticks: {
-                            beginAtZero: true,
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Daily Load'
-                        }
-                    }
-                ],
-                xAxes: [
-                    {
-                        type: 'time',
-                        time: {
-                            unit: 'day',
-                            tooltipFormat: 'YYYY-MM-DD'
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date'
-                        }
-                    }
-                ]
+	    elements: {
+		point: {
+                    radius: 1 // This removes the bubbles marking each point
+		}
             },
             plugins: {
                 annotation: {
