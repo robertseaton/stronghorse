@@ -11,6 +11,10 @@ as input the CSV data export from the FitNotes Android app and then generates a
 graph you can use to analyze your training and compare it to your computed ideal
 training zone. Are you training too much, too little, or just right?
 
+Here is an example of the graph it produces:
+
+[[./example_chart.png]]
+
 The produced graph has three lines:
 
 - *Fitness*: This is an exponentially weighted 42-day average of your training
@@ -36,7 +40,7 @@ The produced graph has three lines:
   finding that lifters in a surplus had a median strength gain of 0.73% per week. 
 
 
-So, basically:
+* Interpreting the Graph
 
 - If your Recovery line is above the Goldilocks Zone, you are in a deload. This is
   a good place to be in the week before a competition, for example, but
