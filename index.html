@@ -33,9 +33,14 @@
     graph.</li>
   <li>If the graph is too small to read on mobile, try rotating your phone horizontally.</li>
   </ul>
-    <input type="file" id="csvFileInput" accept=".csv">
-    <canvas id="exerciseChart"></canvas>
-    <script src="stronghorse.js"></script>
+  <div class="mb-3">
+    <label for="csvFileInput" class="btn btn-primary">
+        <i class="bi bi-upload"></i> Upload FitNotes_Export.csv
+    </label>
+    <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
+  </div>
+  <canvas id="exerciseChart"></canvas>
+  <script src="stronghorse.js"></script>
     <h3>Graph Interpretation</h3>
     <ul>
     <li>You want your Recovery line to fall inside the green band, the
