@@ -122,7 +122,13 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     const tsbValues = tsbData.map(entry => entry.tsb);
     const idealTSBValues = idealTSB.map(entry => entry.tsb);
     const loadValues = dailyLoad.map(([date, load]) => load);
-
+    const lineDefinitions = {
+	'Fitness': 'Fitness: an exponentially weighted 42-day average of your training load in tonnage, your so-called chronic training load.',
+	'Stress': 'Stress: an exponentially weighted 7-day average of your training load in tonnage, your so-called acute training load.',
+	'Recovery': 'Recovery: simply your Stress subtracted from your Fitness, producing a measure of your training balance and recovery.',
+	'Goldilocks Zone': 'Goldilocks Zone: This green band represents the ideal training balance to create sustainable increases in Fitness.',
+	'Load': 'Load: Tonnage for that day.'
+    };
     const ctx = document.getElementById('exerciseChart').getContext('2d');
     const chart = new Chart(ctx, {
         type: 'line',
@@ -180,6 +186,15 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
 		}
             },
             plugins: {
+		legend: {
+                    onHover: (event, legendItem) => {
+			const definition = lineDefinitions[legendItem.text];
+			showTooltip(event.native.target, definition);
+                    },
+                    onLeave: () => {
+			hideTooltip();
+                    }
+		},
                 annotation: {
                     annotations: {
                         shadedBand: {
@@ -205,4 +220,30 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     });
 }
 
+function showTooltip(target, text) {
+    const tooltip = document.createElement('div');
+    tooltip.id = 'chart-tooltip';
+    tooltip.style.position = 'absolute';
+    tooltip.style.backgroundColor = '#333';
+    tooltip.style.color = '#fff';
+    tooltip.style.padding = '5px 10px';
+    tooltip.style.borderRadius = '5px';
+    tooltip.style.pointerEvents = 'none';
+    tooltip.style.fontSize = '14px';
+    tooltip.innerText = text;
 
+    document.body.appendChild(tooltip);
+
+    // Position the tooltip
+    const rect = target.getBoundingClientRect();
+    tooltip.style.left = `${rect.left + window.pageXOffset + 20}px`;
+    tooltip.style.top = `${rect.top + window.pageYOffset + 20}px`;
+}
+
+// Function to hide the tooltip
+function hideTooltip() {
+    const tooltip = document.getElementById('chart-tooltip');
+    if (tooltip) {
+        document.body.removeChild(tooltip);
+    }
+}
