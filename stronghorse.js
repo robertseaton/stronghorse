@@ -130,6 +130,27 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
 	'Load': 'Load: Tonnage for that day.'
     };
     const ctx = document.getElementById('exerciseChart').getContext('2d');
+
+    const finalTSB = tsbValues[tsbValues.length - 1];
+    const finalCTL = ctlValues[ctlValues.length - 1];
+    const threshold = -0.1 * finalCTL;
+    const warningMessage = document.getElementById('warning-message');
+    if (finalTSB < threshold) {
+	warningMessage.style.display = 'block';
+	warningMessage.className = 'alert alert-danger';
+	warningMessage.innerText = 'Warning: Your Recovery line is below the computed Goldilocks Zone. You may be training too hard and are at risk of overtraining.';
+    } else if (finalTSB > 0) {
+	warningMessage.style.display = 'block';
+	warningMessage.className = 'alert alert-danger';
+	warningMessage.innerText = 'Warning: Your Recovery line is above the Goldilocks Zone. Unless you are intentionally in a deload, you may be training too little.';
+    } else if (finalTSB >= threshold && finalTSB <= 0) {
+	warningMessage.style.display = 'block';
+	warningMessage.className = 'alert alert-success';
+	warningMessage.innerText = 'Congratulations! Your Recovery line is inside the Goldilocks Zone. Your training is optimal.';
+    } else {
+	warningMessage.style.display = 'none';
+    }
+    
     const chart = new Chart(ctx, {
         type: 'line',
         data: {
