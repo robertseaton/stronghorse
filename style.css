@@ -1,0 +1,28 @@
+:root {
+    --fitness-color: #36a2eb; /* Blue */
+    --stress-color: #ff6384;  /* Red */
+    --recovery-color: #4bc0c0; /* Teal */
+    --goldilocks-color: #90ee90; /* Light green */
+    --load-color: #ffce56; /* Yellow */
+}
+
+.fitness-color {
+    color: var(--fitness-color);
+}
+
+.stress-color {
+    color: var(--stress-color);
+}
+
+.recovery-color {
+    color: var(--recovery-color);
+}
+
+.goldilocks-color {
+    color: var(--goldilocks-color);
+}
+
+.load-color {
+    color: var(--load-color);
+}
+

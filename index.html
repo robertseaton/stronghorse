@@ -7,6 +7,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2"></script>
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 	  rel="stylesheet"
 	  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -46,29 +47,46 @@
   <div id="warning-message" class="alert" style="display: none;"></div>
 
   <script src="stronghorse.js"></script>
-  <h3>Graph Interpretation</h3>
-  <p>Are you training too much, too little, or just right?</p>
+  <h3>Are you training too much, too little, or just right?</h3>
+  <p></p>
     <ul>
-    <li>You want your Recovery line to fall inside the green band, the
-    Goldilock's zone. This is where you are accumulating Stress at a high-enough
-      level to increase your Fitness without risking overtraining.</li>
-    <li>If your Recovery line is above the Goldilocks Zone, you are in a
+    <li>You want your <strong class="recovery-color">Recovery</strong> line to fall inside the green band, the
+    <strong class="goldilocks-color">Goldilocks Zone</strong>. This is where you
+      are accumulating <strong class="stress-color">Stress</strong> at a high-enough
+      level to increase your <strong class="fitness-color">Fitness</strong> without risking overtraining.</li>
+    <li>If your <strong class="recovery-color">Recovery</strong> line is above the <strong class="goldilocks-color">Goldilocks Zone</strong>, you are in a
   deload. This is a good place to be in the week before a competition, for
       example, but otherwise it indicates you are not training hard enough.</li>
-    <li>If your Recovery line is below the Goldilocks Zone, you have taken on a lot of
-  training volume and Stress lately and are at risk of overtraining and
-      injury. You may be training too hard.</li>
+    <li>If your <strong class="recovery-color">Recovery</strong> line is below
+      the <strong class="goldilocks-color">Goldilocks Zone</strong>, you have
+      taken on a lot of training volume and <strong class="stress-color">Stress</strong>
+      lately and are at risk of overtraining and injury. You may be training too hard.</li>
     </ul>
     <h4>What Each Line Means</h4>
     <p>
     <ul>
-  <li><strong>Fitness</strong>: This is an exponentially weighted 42-day average of your training load in tonnage, your so-called chronic training load. The assumption is that the average tonnage you're moving is a measure of your underlying fitness: if you go from someone moving 13,000lbs/day to someone moving 16,000lbs/day, you will be more fit, stronger, and more muscular.</li>
+  <li><strong class="fitness-color">Fitness</strong>: This is an exponentially weighted 42-day average of your training load in tonnage, your so-called chronic training load. The assumption is that the average tonnage you're moving is a measure of your underlying fitness: if you go from someone moving 13,000lbs/day to someone moving 16,000lbs/day, you will be more fit, stronger, and more muscular.</li>
   
-  <li><strong>Stress</strong>: This is an exponentially weighted 7-day average of your training load in tonnage, your so-called acute training load. This is a measure of the amount of short-term stress or fatigue you've accumulated from training. To create more fitness, your stress must be greater than your fitness, leading us to...</li>
+  <li><strong class="stress-color">Stress</strong>: This is an exponentially
+  weighted 7-day average of your training load in tonnage, your so-called acute
+  training load. This is a measure of the amount of short-term stress or fatigue
+  you've accumulated from training. To create more <strong class="fitness-color">Fitness</strong>,
+  your <strong class="stress-color">Stress</strong> must be greater than your <strong class="fitness-color">Fitness</strong>, leading us to...</li>
   
-  <li><strong>Recovery</strong>: This is simply your Stress subtracted from your Fitness, producing a measure of your training balance and recovery. When your Stress is much larger than your Fitness, your Recovery will be low. When your Stress is less than your Fitness, like during a deload, your Recovery will be high.</li>
+  <li><strong class="recovery-color">Recovery</strong>: This is simply
+  your <strong class="stress-color">Stress</strong> subtracted from
+  your <strong class="fitness-color">Fitness</strong>, producing a measure of
+  your training balance and recovery. When
+  your <strong class="stress-color">Stress</strong> is much larger than
+  your <strong class="fitness-color">Fitness</strong>, your <strong class="recovery-color">Recovery</strong> will be
+  low. When your <strong class="stress-color">Stress</strong> is less than
+  your <strong class="fitness-color">Fitness</strong>, like during a deload,
+  your <strong class="recovery-color">Recovery</strong> will be high.</li>
   
-  <li><strong>Goldilocks Zone</strong>: This green band represents the ideal training balance to create sustainable increases in Fitness. The idea is that your Recovery line should optimally trend inside this zone. When you're training inside this zone, your Stress is between 0% and 10% higher than your Fitness, just enough Stress to produce adaptations without risking overreaching and overtraining. The thicker green line is at 0.73%, based on <a href="https://www.reddit.com/r/weightroom/comments/y3z9m5/which_workout_program_is_best_comparing_reviews/" target="_blank">this analysis</a> finding that lifters in a surplus had a median strength gain of 0.73% per week.</li>
+  <li><strong class="goldilocks-color">Goldilocks Zone</strong>: This green band
+  represents the ideal training balance to create sustainable increases
+  in <strong class="fitness-color">Fitness</strong>. The idea is that
+  your <strong class="recovery-color">Recovery</strong> line should optimally trend inside this zone. When you're training inside this zone, your <strong class="stress-color">Stress</strong> is between 0% and 10% higher than your <strong class="fitness-color">Fitness</strong>, just enough <strong class="stress-color">Stress</strong> to produce adaptations without risking overreaching and overtraining. The thicker green line is at 0.73%, based on <a href="https://www.reddit.com/r/weightroom/comments/y3z9m5/which_workout_program_is_best_comparing_reviews/" target="_blank">this analysis</a> finding that lifters in a surplus had a median strength gain of 0.73% per week.</li>
     </ul>
     </p>
     <p>The code for this website is freely available on GitHub. If you have an

@@ -179,6 +179,14 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     } else {
         document.getElementById('data-warning-message').style.display = 'none';
     }
+
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    const fitnessColor = rootStyles.getPropertyValue('--fitness-color').trim();
+    const stressColor = rootStyles.getPropertyValue('--stress-color').trim();
+    const recoveryColor = rootStyles.getPropertyValue('--recovery-color').trim();
+    const goldilocksColor = rootStyles.getPropertyValue('--goldilocks-color').trim();
+    const loadColor = rootStyles.getPropertyValue('--load-color').trim();
     
     const chart = new Chart(ctx, {
         type: 'line',
@@ -188,16 +196,16 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                 {
                     label: 'Fitness',
                     data: ctlValues,
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
+		    backgroundColor: `${fitnessColor}66`, // Semi-transparent for fill
+                    borderColor: fitnessColor,
                     borderWidth: 2,
                     fill: false,
                 },
                 {
                     label: 'Load',
                     data: loadValues,
-                    borderColor: 'rgba(255, 206, 86, 0.2)',
-                    backgroundColor: 'rgba(255, 206, 86, 0.3)',
+		    borderColor: `${loadColor}33`,
+                    backgroundColor: `${loadColor}4D`,
                     borderWidth: 1,
                     fill: false,
                     type: 'bar',
@@ -205,24 +213,24 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
                 {
                     label: 'Stress',
                     data: atlValues,
-                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: `${stressColor}66`,
+                    borderColor: stressColor,
                     borderWidth: 2,
                     fill: false,
                 },
                 {
                     label: 'Recovery',
                     data: tsbValues,
-                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: `${recoveryColor}66`,
+                    borderColor: recoveryColor,
                     borderWidth: 2,
                     fill: false,
                 },
                 {
                     label: 'Goldilocks Zone',
                     data: idealTSBValues,
-                    backgroundColor: 'rgba(144, 238, 144, 0.8)',
-                    borderColor: 'rgba(144, 238, 144, 0.8)',
+                    backgroundColor: `${goldilocksColor}66`,
+                    borderColor: goldilocksColor,
                     borderWidth: 2,
                     fill: false,
                     pointRadius: 0,
