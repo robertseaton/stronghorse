@@ -115,6 +115,23 @@ function calculateIdealTSB(ctlData) {
     }));
 }
 
+function isMobileDevice() {
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|Windows Phone|webOS|Opera Mini/i.test(navigator.userAgent);
+}
+
+function checkOrientation() {
+    if (isMobileDevice() && window.innerHeight > window.innerWidth) {
+        // User is on a mobile device and the screen is in portrait mode
+        const orientationMessage = document.getElementById('orientation-message');
+        orientationMessage.style.display = 'block';
+        orientationMessage.className = 'alert alert-info'; // Use alert-info for a neutral info message
+        orientationMessage.innerText = 'Try rotating your phone horizontally to view the graph in full detail.';
+    } else {
+        // Hide the message if the orientation is landscape or if the user is not on a mobile device
+        document.getElementById('orientation-message').style.display = 'none';
+    }
+}
+
 function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     const labels = ctlData.map(entry => entry.date);
     const ctlValues = ctlData.map(entry => entry.ctl);
@@ -150,6 +167,8 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     } else {
 	warningMessage.style.display = 'none';
     }
+    
+    checkOrientation();
     
     const chart = new Chart(ctx, {
         type: 'line',

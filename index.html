@@ -31,7 +31,6 @@
   <li>Upload your saved <b>FitNotes_Export.csv</b> below to generate your
   analysis. You need at least 42 days of training data to generate a useful
     graph.</li>
-  <li>If the graph is too small to read on mobile, try rotating your phone horizontally.</li>
   </ul>
   <div class="mb-3">
     <label for="csvFileInput" class="btn btn-primary">
@@ -40,6 +39,7 @@
     <input type="file" id="csvFileInput" accept=".csv" style="display: none;">
   </div>
   <canvas id="exerciseChart"></canvas>
+  <div id="orientation-message" class="alert alert-info" style="display: none;"></div>
   <div id="warning-message" class="alert" style="display: none;"></div>
 
   <script src="stronghorse.js"></script>
