@@ -169,6 +169,16 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     }
     
     checkOrientation();
+
+    // Ensure at least 42 days of training data. 
+    if (ctlData.length < 42) {
+        const dataWarningMessage = document.getElementById('data-warning-message');
+        dataWarningMessage.style.display = 'block';
+        dataWarningMessage.className = 'alert alert-warning'; // Set to alert-warning
+        dataWarningMessage.innerText = 'Warning: You have less than 42 days of data. The graph may not be accurate.';
+    } else {
+        document.getElementById('data-warning-message').style.display = 'none';
+    }
     
     const chart = new Chart(ctx, {
         type: 'line',
