@@ -1,8 +1,6 @@
 #+begin_quote
 When people see a strong horse and a weak horse, by nature they will like the
 strong horse.
-
--- Osama Bin Laden
 #+end_quote
 
 [[https://stronghorse.rs.io/][stronghorse]] is a translation of the performance model used by cyclists on
