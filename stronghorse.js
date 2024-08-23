@@ -155,11 +155,11 @@ function renderChart(ctlData, atlData, tsbData, idealTSB, dailyLoad) {
     if (finalTSB < threshold) {
 	warningMessage.style.display = 'block';
 	warningMessage.className = 'alert alert-danger';
-	warningMessage.innerText = 'Warning: Your Recovery line is below the computed Goldilocks Zone. You may be training too hard and are at risk of overtraining.';
+	warningMessage.innerText = 'Warning: Your Recovery line is below the computed Goldilocks Zone. You may be training too hard.';
     } else if (finalTSB > 0) {
 	warningMessage.style.display = 'block';
 	warningMessage.className = 'alert alert-danger';
-	warningMessage.innerText = 'Warning: Your Recovery line is above the Goldilocks Zone. Unless you are intentionally in a deload, you may be training too little.';
+	warningMessage.innerText = 'Warning: Your Recovery line is above the Goldilocks Zone. Unless you are intentionally in a deload or cutting weight, you may be training too little.';
     } else if (finalTSB >= threshold && finalTSB <= 0) {
 	warningMessage.style.display = 'block';
 	warningMessage.className = 'alert alert-success';
